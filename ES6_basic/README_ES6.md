@@ -8,12 +8,12 @@
     - [Learning Objectives](#learning-objectives)
     - [Basic Syntax](#basic-syntax)
     - [New Features Introduced in ES6](#new-features-introduced-in-es6)
-      - [1. **Variable Declarations: let and const**](#1-variable-declarations-let-and-const)
-      - [2. **Arrow Functions**](#2-arrow-functions)
-      - [3. **Rest and Spread Parameters**](#3-rest-and-spread-parameters)
-      - [4. **String Templating**](#4-string-templating)
-      - [5. **Object Creation and Shorthand Properties**](#5-object-creation-and-shorthand-properties)
-      - [6. **Iterators and for-of Loops**](#6-iterators-and-for-of-loops)
+      - [1. Variable Declarations: let and const](#1-variable-declarations-let-and-const)
+      - [2. Arrow Functions](#2-arrow-functions)
+      - [3. Rest and Spread Parameters](#3-rest-and-spread-parameters)
+      - [4. String Templating](#4-string-templating)
+      - [5. Object Creation and Shorthand Properties](#5-object-creation-and-shorthand-properties)
+      - [6. Iterators and for-of Loops](#6-iterators-and-for-of-loops)
     - [Conclusion](#conclusion)
 
 ## Glossary
@@ -114,7 +114,7 @@ console.log(sayHello()); // Outputs: Hello, World!
 
 ### New Features Introduced in ES6
 
-#### 1. **Variable Declarations: let and const**
+#### 1. Variable Declarations: let and const
 
 - **`let`**: Block-scoped, can be reassigned.
 - **`const`**: Block-scoped, cannot be reassigned.
@@ -124,7 +124,7 @@ let counter = 1;  // Can be reassigned
 const MAX_LIMIT = 100;  // Cannot be reassigned
 ```
 
-#### 2. **Arrow Functions**
+#### 2. Arrow Functions
 
 Arrow functions provide a shorter syntax for writing functions and automatically bind the `this` value.
 
@@ -133,7 +133,7 @@ const add = (a, b) => a + b;
 console.log(add(2, 3)); // Outputs: 5
 ```
 
-#### 3. **Rest and Spread Parameters**
+#### 3. Rest and Spread Parameters
 
 - **Rest** allows functions to accept an indefinite number of arguments as an array.
 - **Spread** allows arrays or objects to be expanded.
@@ -146,7 +146,7 @@ const arr = [1, 2, 3];
 console.log(...arr); // Outputs: 1 2 3
 ```
 
-#### 4. **String Templating**
+#### 4. String Templating
 
 Template literals allow embedded expressions in strings using backticks (`` ` ``):
 
@@ -155,7 +155,7 @@ const greetingMessage = `${greeting}, ${name}!`;
 console.log(greetingMessage); // Outputs: Hello, World!
 ```
 
-#### 5. **Object Creation and Shorthand Properties**
+#### 5. Object Creation and Shorthand Properties
 
 You can now use shorthand syntax for objects if the key and value names are the same.
 
@@ -171,7 +171,7 @@ const person2 = { name, age };
 console.log(person2);  // Outputs: { name: 'John', age: 25 }
 ```
 
-#### 6. **Iterators and for-of Loops**
+#### 6. Iterators and for-of Loops
 
 The `for-of` loop allows iteration over iterable collections like arrays and strings.
 
