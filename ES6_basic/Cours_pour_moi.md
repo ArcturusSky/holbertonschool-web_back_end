@@ -9,6 +9,13 @@
       - [Avec `let` (solution) :](#avec-let-solution-)
       - [Avec `const` (immuables) :](#avec-const-immuables-)
     - [Conclusion](#conclusion)
+  - [Task 11: Notation dynamique des clés d'objets en JavaScript](#task-11-notation-dynamique-des-clés-dobjets-en-javascript)
+    - [Syntaxe de base](#syntaxe-de-base)
+    - [Notation dynamique](#notation-dynamique)
+      - [Exemple avec une expression](#exemple-avec-une-expression)
+    - [Cas d'utilisation pratique : Créer un objet avec des clés dynamiques](#cas-dutilisation-pratique--créer-un-objet-avec-des-clés-dynamiques)
+      - [Explication :](#explication-)
+    - [Conclusion](#conclusion-1)
 
 
 ## Task 1 : Concept à comprendre : Block Scope et `var` vs let/const
@@ -133,3 +140,70 @@ montrerPorteeConst();
 - Ne peut **pas être réassignée** après déclaration.
 
 `const` est idéal pour des variables qui ne changent pas après leur déclaration, et `let` est préférable on prévoit de les modifier.
+
+## Task 11: Notation dynamique des clés d'objets en JavaScript
+
+En JavaScript, il est possible de définir des objets avec des **clés dynamiques**. Cela permet de créer des objets où les clés ne sont pas simplement des chaînes fixes, mais des **valeurs qui peuvent être évaluées** à partir de variables ou d'expressions.
+
+### Syntaxe de base
+
+Habituellement, pour définir une clé dans un objet, vous utilisez la **notation par deux-points** :
+
+```javascript
+const obj = {
+  key: 'value'
+}
+```
+
+Cependant, cette méthode ne permet pas d'utiliser des **variables** ou des **expressions** comme clés. Pour cela, on utilise la **notation dynamique** avec des crochets `[ ]`.
+
+### Notation dynamique
+
+La notation dynamique des clés se fait en enveloppant l'expression ou la variable dans des **crochets**. Voici comment cela fonctionne :
+
+```javascript
+const key = 'name';
+const obj = {
+  [key]: 'John Doe'
+};
+console.log(obj); // { name: 'John Doe' }
+```
+
+Dans l'exemple ci-dessus, la valeur de la variable `key` est utilisée comme nom de la clé dans l'objet.
+
+#### Exemple avec une expression
+
+Vous pouvez aussi utiliser des **expressions** à l'intérieur des crochets, et pas seulement des variables.
+
+```javascript
+const age = 25;
+const obj = {
+  [`person-${age}`]: 'John Doe'
+};
+console.log(obj); // { person-25: 'John Doe' }
+```
+
+Ici, la clé de l'objet devient `person-25` car l'expression `${age}` est remplacée par la valeur de la variable `age`.
+
+### Cas d'utilisation pratique : Créer un objet avec des clés dynamiques
+
+Imaginons que vous vouliez créer un objet avec une clé dynamique basée sur un nom de département et une valeur qui est une liste d'employés. Voici comment vous pourriez le faire :
+
+```javascript
+export default function createEmployeesObject(departmentName, employees) {
+  const obj = { [departmentName]: employees }; // Clé dynamique
+  return obj;
+}
+```
+
+#### Explication :
+- **[departmentName]** : Ici, `departmentName` est une **variable** et devient la clé dynamique de l'objet. Cela permet de créer une clé basée sur la valeur contenue dans `departmentName`.
+- **employees** : C'est la valeur associée à cette clé.
+
+### Conclusion
+
+La notation dynamique des clés d'objets est très utile lorsque vous souhaitez créer des objets dont les clés ne sont pas connues à l'avance, mais qui dépendent de valeurs de variables ou d'expressions. Cela rend votre code plus flexible et dynamique.
+
+---
+
+Vous pouvez utiliser cette notation dans de nombreux cas pratiques, comme la gestion de configurations, de filtres, ou d'objets dynamiques où les clés changent en fonction des conditions.

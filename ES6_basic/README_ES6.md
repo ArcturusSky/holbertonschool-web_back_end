@@ -14,7 +14,14 @@
       - [4. String Templating](#4-string-templating)
       - [5. Object Creation and Shorthand Properties](#5-object-creation-and-shorthand-properties)
       - [6. Iterators and for-of Loops](#6-iterators-and-for-of-loops)
+  - [Dynamic Object Key Notation in JavaScript](#dynamic-object-key-notation-in-javascript)
+    - [Basic Syntax](#basic-syntax-1)
+    - [Dynamic Notation](#dynamic-notation)
+      - [Example with an Expression](#example-with-an-expression)
+    - [Practical Use Case: Creating an Object with Dynamic Keys](#practical-use-case-creating-an-object-with-dynamic-keys)
+      - [Explanation:](#explanation)
     - [Conclusion](#conclusion)
+    - [Conclusion](#conclusion-1)
 
 ## Glossary
 
@@ -181,6 +188,74 @@ for (const num of arr) {
     console.log(num); // Outputs: 1, 2, 3, 4, 5
 }
 ```
+
+## Dynamic Object Key Notation in JavaScript
+
+In JavaScript, it is possible to define objects with **dynamic keys**. This allows you to create objects where the keys are not just fixed strings, but **values that can be evaluated** from variables or expressions.
+
+### Basic Syntax
+
+Typically, to define a key in an object, you use **colon notation**:
+
+```javascript
+const obj = {
+  key: 'value'
+}
+```
+
+However, this method doesn't allow you to use **variables** or **expressions** as keys. To achieve this, we use **dynamic notation** with square brackets `[ ]`.
+
+### Dynamic Notation
+
+Dynamic key notation is done by wrapping the expression or variable in **square brackets**. Here's how it works:
+
+```javascript
+const key = 'name';
+const obj = {
+  [key]: 'John Doe'
+};
+console.log(obj); // { name: 'John Doe' }
+```
+
+In the above example, the value of the variable `key` is used as the key name in the object.
+
+#### Example with an Expression
+
+You can also use **expressions** inside the square brackets, not just variables.
+
+```javascript
+const age = 25;
+const obj = {
+  [`person-${age}`]: 'John Doe'
+};
+console.log(obj); // { person-25: 'John Doe' }
+```
+
+Here, the object's key evaluates to `person-25` because the expression `${age}` is substituted with the value of the `age` variable.
+
+### Practical Use Case: Creating an Object with Dynamic Keys
+
+Imagine you want to create an object with a dynamic key based on a department name and a value that is a list of employees. Here's how you could do it:
+
+```javascript
+export default function createEmployeesObject(departmentName, employees) {
+  const obj = { [departmentName]: employees }; // Dynamic Key
+  return obj;
+}
+```
+
+#### Explanation:
+- **[departmentName]**: Here, `departmentName` is a **variable** and becomes the dynamic key of the object. This allows you to create a key based on the value contained in `departmentName`.
+- **employees**: This is the value associated with that key.
+
+### Conclusion
+
+Dynamic object key notation is very useful when you want to create objects whose keys are not known in advance but depend on variable values or expressions. It allows your code to be more flexible and dynamic.
+
+---
+
+You can use this notation in many practical cases, such as managing configurations, filters, or dynamic objects where keys change based on conditions.
+
 
 ### Conclusion
 
