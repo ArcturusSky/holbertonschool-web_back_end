@@ -274,6 +274,99 @@ person.age = -5;  // Invalid age, Error
 
 ---
 
+## Abstraction in JavaScript
+
+### Definition:
+Abstraction is a way to hide the complex details and only expose the necessary parts of an object or class. It allows us to focus on **what** an object does, without worrying about **how** it does it. This is especially useful when dealing with complex systems.
+
+In JavaScript, abstraction is typically achieved by creating **abstract classes** or **methods** that must be implemented by derived classes.
+
+### Basic Syntax:
+
+In JavaScript, we cannot directly create an abstract class like in some other programming languages (e.g., Java, C++). However, we can simulate abstraction using **classes** and **throwing errors** when abstract methods are not implemented in child classes.
+
+Example syntax:
+
+```javascript
+class ClassExample {
+  constructor(attribute) {
+    this._attribute = attribute;  // Protected attribute
+  }
+
+  // Abstract method
+  abstractMethod() {
+    throw new Error("You must implement the abstractMethod in a subclass.");
+  }
+}
+```
+
+### Breakdown of the syntax:
+- **`class ClassExample`**: Defines a class named `ClassExample`.
+- **`constructor(attribute)`**: A constructor to initialize the object with an attribute (using `_attribute` to store it as a "protected" variable).
+- **`abstractMethod()`**: This is an abstract method. It's meant to be implemented by any subclass. If not implemented, it throws an error when called.
+
+### Concrete and Simple Example:
+
+Let's create an abstract class called `Shape` with an abstract method `calculateArea`. We will then create two subclasses: `Circle` and `Rectangle` that will implement this method.
+
+```javascript
+class Shape {
+  constructor(name) {
+    this._name = name;  // Protected attribute for the name of the shape
+  }
+
+  // Abstract method
+  calculateArea() {
+    throw new Error("You must implement the calculateArea method in a subclass.");
+  }
+}
+
+class Circle extends Shape {
+  constructor(radius) {
+    super("Circle");
+    this._radius = radius;  // Protected attribute for the radius of the circle
+  }
+
+  // Implement the abstract method in Circle
+  calculateArea() {
+    return Math.PI * this._radius * this._radius;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(width, height) {
+    super("Rectangle");
+    this._width = width;  // Protected attribute for width
+    this._height = height;  // Protected attribute for height
+  }
+
+  // Implement the abstract method in Rectangle
+  calculateArea() {
+    return this._width * this._height;
+  }
+}
+
+const circle = new Circle(5);
+console.log(circle.calculateArea());  // 78.53981633974483
+
+const rectangle = new Rectangle(4, 6);
+console.log(rectangle.calculateArea());  // 24
+```
+
+### Breakdown of the example:
+- **`Shape` class**: This is the abstract base class. It has an abstract method `calculateArea` which needs to be implemented by any subclass.
+- **`Circle` class**: This subclass implements the `calculateArea` method to calculate the area of a circle using the formula \( \pi \times r^2 \).
+- **`Rectangle` class**: This subclass implements the `calculateArea` method to calculate the area of a rectangle using the formula \( \text{width} \times \text{height} \).
+- **Error Handling**: If a subclass doesn't implement the `calculateArea` method, calling `calculateArea` will throw an error in the `Shape` class.
+
+### Key Takeaways:
+- **Abstraction** hides complexity by focusing only on essential details.
+- In JavaScript, **abstract methods** can be simulated by throwing an error in the base class.
+- Subclasses are responsible for implementing these abstract methods.
+
+
+---
+
 ## Metaprogramming with Proxies
 
 ### Definition:  
