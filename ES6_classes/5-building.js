@@ -1,5 +1,8 @@
 export default class Building {
   constructor(sqft) {
+    if (new.target === Building) {
+      throw new Error('Cannot instantiate an abstract class directly.');
+    }
     if (typeof sqft !== 'number') {
       throw new Error('TypeError: sqft must be a number');
     }
@@ -18,6 +21,7 @@ export default class Building {
     }
     this._sqft = newsqft; // eslint-disable-line no-underscore-dangle
   }
+
   // Abstract method
   evacuationWarningMessage() { // eslint-disable-line class-methods-use-this
     throw new Error('Class extending Building must override evacuationWarningMessage');
