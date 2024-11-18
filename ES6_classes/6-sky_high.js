@@ -7,6 +7,11 @@ export default class SkyHighBuilding extends Building {
     this._floors = floors; // eslint-disable-line no-underscore-dangle
   }
 
+  // Getter for sqft
+  get sqft() {
+    return this._sqft; // eslint-disable-line no-underscore-dangle
+  }
+
   // Getter for floors
   get floors() {
     return this._floors; // eslint-disable-line no-underscore-dangle
