@@ -41,7 +41,7 @@ export default class Pricing {
     return `${this._amount} ${this._currency._name} (${this._currency._code})`; // eslint-disable-line no-underscore-dangle
   }
 
-  static converPrice(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
