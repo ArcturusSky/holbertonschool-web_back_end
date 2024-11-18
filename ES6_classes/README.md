@@ -1,5 +1,57 @@
 ## ES6 Classes and Metaprogramming
 
+- [ES6 Classes and Metaprogramming](#es6-classes-and-metaprogramming)
+  - [Overview:](#overview)
+- [Basic Class Structure](#basic-class-structure)
+  - [Definition:](#definition)
+  - [Basic Syntax:](#basic-syntax)
+  - [Concrete and simple example:](#concrete-and-simple-example)
+- [Class Inheritance](#class-inheritance)
+  - [Definition:](#definition-1)
+  - [Basic Syntax:](#basic-syntax-1)
+  - [Concrete and simple example:](#concrete-and-simple-example-1)
+- [Static Methods](#static-methods)
+  - [Definition:](#definition-2)
+  - [Basic Syntax:](#basic-syntax-2)
+  - [Concrete and simple example:](#concrete-and-simple-example-2)
+- [Import and Export](#import-and-export)
+  - [Definition:](#definition-3)
+  - [Basic Syntax:](#basic-syntax-3)
+  - [Concrete and simple example:](#concrete-and-simple-example-3)
+- [Getters and Setters](#getters-and-setters)
+  - [Definition:](#definition-4)
+  - [Basic Syntax:](#basic-syntax-4)
+  - [Concrete and simple example:](#concrete-and-simple-example-4)
+- [Abstraction in JavaScript](#abstraction-in-javascript)
+  - [Definition:](#definition-5)
+  - [Basic Syntax:](#basic-syntax-5)
+  - [Breakdown of the syntax:](#breakdown-of-the-syntax)
+  - [Concrete and Simple Example:](#concrete-and-simple-example-5)
+  - [Breakdown of the example:](#breakdown-of-the-example)
+  - [Key Takeaways:](#key-takeaways)
+- [Simulating abstract class can't be instanciated directly (advanced)](#simulating-abstract-class-cant-be-instanciated-directly-advanced)
+  - [Basic Syntax:](#basic-syntax-6)
+  - [Breakdown of the syntax:](#breakdown-of-the-syntax-1)
+- [Metaprogramming with Proxies](#metaprogramming-with-proxies)
+  - [Definition:](#definition-6)
+  - [Basic Syntax:](#basic-syntax-7)
+  - [Concrete and simple example:](#concrete-and-simple-example-6)
+- [Reflect API](#reflect-api)
+  - [Definition:](#definition-7)
+  - [Basic Syntax:](#basic-syntax-8)
+  - [Concrete and simple example:](#concrete-and-simple-example-7)
+- [Symbols](#symbols)
+  - [Definition:](#definition-8)
+  - [Basic Syntax:](#basic-syntax-9)
+  - [Concrete and simple example:](#concrete-and-simple-example-8)
+- [Class Fields](#class-fields)
+  - [Definition:](#definition-9)
+  - [Basic Syntax:](#basic-syntax-10)
+  - [Concrete and simple example:](#concrete-and-simple-example-9)
+- [Conclusion](#conclusion)
+
+
+
 ### Overview:  
 This course introduces ES6 classes, their key concepts, and metaprogramming features such as Proxies, Reflect API, and Symbols. Each concept is explained with definitions, basic syntax, and simple, concrete examples.
 
@@ -68,8 +120,9 @@ Inheritance allows a class to extend another class, sharing properties and metho
 ### Basic Syntax:
 ```javascript
 class ParentClass {
-    constructor(property) {
-        this.property = property;
+    constructor(parentpropert1, parentproperty2) {
+        this.property1 = property1;
+        this.property2 = property2;
     }
 
     parentMethod() {
@@ -78,7 +131,8 @@ class ParentClass {
 }
 
 class ChildClass extends ParentClass {
-    childMethod() {
+    childMethod(property1, property2) {
+        super(property1); // This property will be inherited from the parent
         return `This is a child class method.`;
     }
 }
@@ -88,7 +142,7 @@ const child = new ChildClass("Parent Value");
 
 **Breakdown of the syntax:**
 - `extends`: Allows `ChildClass` to inherit from `ParentClass`.
-- `super`: Calls the parent class’s constructor (if used in `constructor`).
+- The `super()` method refers to the parent class. By calling the `super()` method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.
 
 ---
 
