@@ -5,6 +5,10 @@ export default class Building {
     }
 
     this._sqft = sqft; // eslint-disable-line no-underscore-dangle
+
+    if (this.evacuationWarningMessage === undefined) {
+        throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
   }
 
   // Getter&Setter for sqft
@@ -17,9 +21,5 @@ export default class Building {
       throw new TypeError('sqft must be a number');
     }
     this._sqft = newsqft; // eslint-disable-line no-underscore-dangle
-  }
-
-  evacuationWarningMessage() { // eslint-disable-line class-methods-use-this
-    throw new TypeError('Class extending Building must override evacuationWarningMessage');
   }
 }
