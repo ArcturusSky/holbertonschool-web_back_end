@@ -1,7 +1,7 @@
 export default class Building {
   constructor(sqft) {
     if (typeof sqft !== 'number') {
-      throw new Error('TypeError: sqft must be a number');
+      throw new TypeError('sqft must be a number');
     }
 
     this._sqft = sqft; // eslint-disable-line no-underscore-dangle
@@ -14,12 +14,12 @@ export default class Building {
 
   set sqft(newsqft) {
     if (typeof newsqft !== 'number') {
-      throw new Error('TypeError: sqft must be a string');
+      throw new TypeError('sqft must be a number');
     }
     this._sqft = newsqft; // eslint-disable-line no-underscore-dangle
   }
 
   evacuationWarningMessage() { // eslint-disable-line class-methods-use-this
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    throw new TypeError('Class extending Building must override evacuationWarningMessage');
   }
 }
