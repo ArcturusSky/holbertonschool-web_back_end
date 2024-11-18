@@ -283,17 +283,14 @@ In JavaScript, abstraction is typically achieved by creating **abstract classes*
 
 ### Basic Syntax:
 
-In JavaScript, we cannot directly create an abstract class like in some other programming languages (e.g., Java, C++). However, we can simulate abstraction using **classes** and **throwing errors** when abstract methods are not implemented in child classes.
+In JavaScript, we cannot directly create an abstract class like in some other programming languages. However, we can **simulate** abstraction using **classes** and **throwing errors** when abstract methods are not implemented in child classes.
 
 Example syntax:
 
 ```javascript
-class AbstractClassExample {
+class ClassExample {
   constructor(attribute) {
-    if (new.target === AbstractClassExample) {
-      throw new Error("Cannot instantiate an abstract class directly.");
-    }
-    this._attribute = attribute;
+    this._attribute = attribute;  // Protected attribute
   }
 
   // Abstract method
@@ -304,19 +301,9 @@ class AbstractClassExample {
 ```
 
 ### Breakdown of the syntax:
-- **`class AbstractClassExample`**:
-  - Defines a class named `AbstractClassExample`.
-
-**Note**: in JavaScript, there is no built-in "*abstract*" keyword; using "Abstract" in the name is purely for example.
-- **`constructor(attribute)`**: 
-  - A constructor to initialize the object with an attribute (using `this._attribute` to store it as a "protected" variable).
-
-- **`new.target`**:
-  - is a special meta-property in javascript that refers to the class being instantiated.
-- **`=== AbstractClassExample`**:
-  - Compares `new.target` to the class name `AbstractClassExample`. If they are equal, it means the class is being instantiated directly, which is prohibited for abstract classes. An error is thrown in this case.
-- **`abstractMethod()`**:
-  - This is a placeholder method meant to be overridden by subclasses. If a subclass doesn't override this method and it's called, it will throw an error, enforcing the requirement to implement it.
+- **`class ClassExample`**: Defines a class named `ClassExample`.
+- **`constructor(attribute)`**: A constructor to initialize the object with an attribute (using `_attribute` to store it as a "protected" variable).
+- **`abstractMethod()`**: This is an abstract method. It's meant to be implemented by any subclass. If not implemented, it throws an error when called.
 
 ### Concrete and Simple Example:
 
@@ -377,6 +364,42 @@ console.log(rectangle.calculateArea());  // 24
 - In JavaScript, **abstract methods** can be simulated by throwing an error in the base class.
 - Subclasses are responsible for implementing these abstract methods.
 
+## Simulating abstract class can't be instanciated directly (advanced)
+
+We can simulate when a the class is called and shouldn't be
+
+### Basic Syntax:
+
+```javascript
+class AbstractClassExample {
+  constructor(attribute) {
+    if (new.target === AbstractClassExample) {
+      throw new Error("Cannot instantiate an abstract class directly.");
+    }
+    this._attribute = attribute;
+  }
+
+  // Abstract method
+  abstractMethod() {
+    throw new Error("You must implement the abstractMethod in a subclass.");
+  }
+}
+```
+
+### Breakdown of the syntax:
+- **`class AbstractClassExample`**:
+  - Defines a class named `AbstractClassExample`.
+
+**Note**: in JavaScript, there is no built-in "*abstract*" keyword; using "Abstract" in the name is purely for example.
+- **`constructor(attribute)`**: 
+  - A constructor to initialize the object with an attribute (using `this._attribute` to store it as a "protected" variable).
+
+- **`new.target`**:
+  - is a special meta-property in javascript that refers to the class being instantiated.
+- **`=== AbstractClassExample`**:
+  - Compares `new.target` to the class name `AbstractClassExample`. If they are equal, it means the class is being instantiated directly, which is prohibited for abstract classes. An error is thrown in this case.
+- **`abstractMethod()`**:
+  - This is a placeholder method meant to be overridden by subclasses. If a subclass doesn't override this method and it's called, it will throw an error, enforcing the requirement to implement it.
 
 ---
 
