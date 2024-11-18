@@ -18,7 +18,7 @@ export default class Building {
     }
     this._sqft = newsqft; // eslint-disable-line no-underscore-dangle
   }
-
+  // Abstract method
   evacuationWarningMessage() { // eslint-disable-line class-methods-use-this
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
