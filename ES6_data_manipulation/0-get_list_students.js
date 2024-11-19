@@ -2,18 +2,18 @@ export default function getListStudents() { // eslint-disable-line no-unused-var
   const StudentList = [];
 
   const student1 = {
-    firstname: 'Guillaume',
     id: 1,
+    firstname: 'Guillaume',
     location: 'San Francisco',
   };
   const student2 = {
-    firstname: 'James',
     id: 2,
+    firstname: 'James',
     location: 'Columbia',
   };
   const student3 = {
-    firstname: 'Serena',
     id: 5,
+    firstname: 'Serena',
     location: 'San Francisco',
   };
   StudentList.push(student1, student2, student3);
