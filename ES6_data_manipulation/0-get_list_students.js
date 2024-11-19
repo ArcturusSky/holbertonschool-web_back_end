@@ -1,4 +1,4 @@
-function getListStudents() { // eslint-disable-line no-unused-vars
+export default function getListStudents() { // eslint-disable-line no-unused-vars
   const StudentList = [];
 
   const student1 = {
