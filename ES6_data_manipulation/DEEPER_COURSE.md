@@ -1,91 +1,37 @@
 ## JavaScript Arrays
 
 - [JavaScript Arrays](#javascript-arrays)
-  - [Definition:](#definition)
-  - [Basic Syntax:](#basic-syntax)
-  - [Concrete and Simple Example:](#concrete-and-simple-example)
-  - [Notes:](#notes)
-  - [Common Methods for Arrays](#common-methods-for-arrays)
-    - [Array.prototype.push()](#arrayprototypepush)
-  - [Definition:](#definition-1)
-  - [Basic Syntax:](#basic-syntax-1)
-  - [Concrete and Simple Example:](#concrete-and-simple-example-1)
-    - [Array.prototype.pop()](#arrayprototypepop)
-  - [Definition:](#definition-2)
-  - [Basic Syntax:](#basic-syntax-2)
-  - [Concrete and Simple Example:](#concrete-and-simple-example-2)
-    - [Array.prototype.shift()](#arrayprototypeshift)
-  - [Definition:](#definition-3)
-  - [Basic Syntax:](#basic-syntax-3)
-  - [Concrete and Simple Example:](#concrete-and-simple-example-3)
-    - [Array.prototype.unshift()](#arrayprototypeunshift)
-  - [Definition:](#definition-4)
-  - [Basic Syntax:](#basic-syntax-4)
-  - [Concrete and Simple Example:](#concrete-and-simple-example-4)
+- [Common Methods for Arrays](#common-methods-for-arrays)
+  - [Array.prototype.push()](#arrayprototypepush)
+  - [Array.prototype.pop()](#arrayprototypepop)
+  - [Array.prototype.shift()](#arrayprototypeshift)
+  - [Array.prototype.unshift()](#arrayprototypeunshift)
 - [Additional JavaScript Array Methods](#additional-javascript-array-methods)
   - [Array.prototype.slice()](#arrayprototypeslice)
-    - [Definition:](#definition-5)
-    - [Basic Syntax:](#basic-syntax-5)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-5)
   - [Array.prototype.splice()](#arrayprototypesplice)
-    - [Definition:](#definition-6)
-    - [Basic Syntax:](#basic-syntax-6)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-6)
   - [Array.prototype.map()](#arrayprototypemap)
-    - [Definition:](#definition-7)
-    - [Basic Syntax:](#basic-syntax-7)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-7)
   - [Array.prototype.filter()](#arrayprototypefilter)
-    - [Definition:](#definition-8)
-    - [Basic Syntax:](#basic-syntax-8)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-8)
   - [Array.prototype.reduce()](#arrayprototypereduce)
-    - [Definition:](#definition-9)
-    - [Basic Syntax:](#basic-syntax-9)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-9)
   - [Array.prototype.find()](#arrayprototypefind)
-    - [Definition:](#definition-10)
-    - [Basic Syntax:](#basic-syntax-10)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-10)
 - [Typed Arrays in JavaScript](#typed-arrays-in-javascript)
-  - [Definition:](#definition-11)
   - [Key Components of Typed Arrays:](#key-components-of-typed-arrays)
     - [ArrayBuffer](#arraybuffer)
-    - [Definition:](#definition-12)
-    - [Basic Syntax:](#basic-syntax-11)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-11)
     - [DataView](#dataview)
-    - [Definition:](#definition-13)
-    - [Basic Syntax:](#basic-syntax-12)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-12)
     - [Typed Array Views](#typed-array-views)
-    - [Definition:](#definition-14)
-    - [Basic Syntax:](#basic-syntax-13)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-13)
   - [Commonly Used Typed Arrays](#commonly-used-typed-arrays)
   - [Real-World Example: Image Data Manipulation](#real-world-example-image-data-manipulation)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-14)
   - [Benefits of Typed Arrays:](#benefits-of-typed-arrays)
 - [Set, Map, and WeakMap in JavaScript](#set-map-and-weakmap-in-javascript)
   - [Set](#set)
-    - [Definition:](#definition-15)
-    - [Basic Syntax:](#basic-syntax-14)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-15)
   - [Map](#map)
-    - [Definition:](#definition-16)
-    - [Basic Syntax:](#basic-syntax-15)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-16)
   - [WeakMap](#weakmap)
-    - [Definition:](#definition-17)
-    - [Basic Syntax:](#basic-syntax-16)
-    - [Concrete and Simple Example:](#concrete-and-simple-example-17)
   - [Key Differences](#key-differences)
 
 
-### Definition: 
+**Definition:**
 An **array** in JavaScript is an ordered collection of elements that can hold any type of data. Arrays are resizable, zero-indexed, and allow efficient iteration and manipulation of their elements.
 
-### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const exampleArray = [1, 2, 3, 4];
 console.log(exampleArray); // Output: [1, 2, 3, 4]
@@ -96,7 +42,7 @@ console.log(exampleArray); // Output: [1, 2, 3, 4]
 - `[1, 2, 3, 4]`: Defines the elements of the array enclosed in square brackets.
 - `console.log(exampleArray)`: Prints the array to the console.
 
-### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const fruits = ['Apple', 'Banana', 'Cherry'];
 
@@ -117,18 +63,19 @@ console.log(fruits); // Output: ['Apple', 'Banana', 'Cherry']
 - `push('Date')`: Adds `'Date'` to the end of the array.
 - `pop()`: Removes the last element from the array (`'Date'`).
 
-### Notes:
+**Notes:**
 - Arrays are dynamic, meaning you can add or remove elements without needing to declare the size.
 - Arrays are iterable, making them easy to traverse with loops or methods like `forEach`.
 - They support mixed data types: `[1, 'two', true]`.
 
-### Common Methods for Arrays
+## Common Methods for Arrays
 
-#### Array.prototype.push()
-### Definition:
+### Array.prototype.push()
+
+**Definition:**
 The `push()` method adds one or more elements to the end of an array and returns the new length of the array.
 
-### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const newLength = arrayName.push(element1, element2, ...);
 ```
@@ -138,7 +85,7 @@ const newLength = arrayName.push(element1, element2, ...);
 - `element1, element2, ...`: The elements to add.
 - `newLength`: The updated length of the array.
 
-### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const numbers = [1, 2, 3];
 const newLength = numbers.push(4, 5);
@@ -153,11 +100,12 @@ console.log(newLength); // Output: 5
 
 ---
 
-#### Array.prototype.pop()
-### Definition:
+### Array.prototype.pop()
+
+**Definition:**
 The `pop()` method removes the last element of an array and returns it.
 
-### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const removedElement = arrayName.pop();
 ```
@@ -166,7 +114,7 @@ const removedElement = arrayName.pop();
 - `arrayName`: The array to modify.
 - `removedElement`: The element removed from the end of the array.
 
-### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const fruits = ['Apple', 'Banana', 'Cherry'];
 const lastFruit = fruits.pop();
@@ -181,11 +129,12 @@ console.log(lastFruit); // Output: 'Cherry'
 
 ---
 
-#### Array.prototype.shift()
-### Definition:
+### Array.prototype.shift()
+
+**Definition:**
 The `shift()` method removes the first element of an array and returns it. This shifts the remaining elements to a lower index.
 
-### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const removedElement = arrayName.shift();
 ```
@@ -194,7 +143,7 @@ const removedElement = arrayName.shift();
 - `arrayName`: The array to modify.
 - `removedElement`: The element removed from the start of the array.
 
-### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const colors = ['Red', 'Green', 'Blue'];
 const firstColor = colors.shift();
@@ -209,11 +158,12 @@ console.log(firstColor); // Output: 'Red'
 
 ---
 
-#### Array.prototype.unshift()
-### Definition:
+### Array.prototype.unshift()
+
+**Definition:**
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
-### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const newLength = arrayName.unshift(element1, element2, ...);
 ```
@@ -223,7 +173,7 @@ const newLength = arrayName.unshift(element1, element2, ...);
 - `element1, element2, ...`: The elements to add.
 - `newLength`: The updated length of the array.
 
-### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const animals = ['Cat', 'Dog'];
 const newLength = animals.unshift('Elephant', 'Fox');
@@ -244,10 +194,10 @@ console.log(newLength); // Output: 4
 
 ### Array.prototype.slice()
 
-#### Definition:
+**Definition:**
 The `slice()` method returns a shallow copy of a portion of an array into a new array, without modifying the original array.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const newArray = arrayName.slice(startIndex, endIndex);
 ```
@@ -256,7 +206,7 @@ const newArray = arrayName.slice(startIndex, endIndex);
 - `startIndex`: The index at which to begin extraction (inclusive).
 - `endIndex`: The index before which to end extraction (exclusive). If omitted, extracts to the end of the array.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const letters = ['a', 'b', 'c', 'd', 'e'];
 const subArray = letters.slice(1, 4);
@@ -272,10 +222,10 @@ console.log(letters);  // Output: ['a', 'b', 'c', 'd', 'e'] (unchanged)
 
 ### Array.prototype.splice()
 
-#### Definition:
+**Definition:**
 The `splice()` method changes an array by adding, removing, or replacing elements at specific indexes.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const removedElements = arrayName.splice(startIndex, deleteCount, item1, item2, ...);
 ```
@@ -285,7 +235,7 @@ const removedElements = arrayName.splice(startIndex, deleteCount, item1, item2, 
 - `deleteCount`: Number of elements to remove.
 - `item1, item2, ...`: Elements to add (optional).
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const fruits = ['Apple', 'Banana', 'Cherry'];
 const removed = fruits.splice(1, 1, 'Orange', 'Grape');
@@ -301,10 +251,10 @@ console.log(removed); // Output: ['Banana']
 
 ### Array.prototype.map()
 
-#### Definition:
+**Definition:**
 The `map()` method creates a new array populated with the results of calling a provided function on every element in the original array.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const newArray = arrayName.map(callbackFunction);
 ```
@@ -312,7 +262,7 @@ const newArray = arrayName.map(callbackFunction);
 **Breakdown of the syntax:**
 - `callbackFunction`: Function applied to each array element.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const numbers = [1, 2, 3];
 const squared = numbers.map(num => num ** 2);
@@ -327,10 +277,10 @@ console.log(squared); // Output: [1, 4, 9]
 
 ### Array.prototype.filter()
 
-#### Definition:
+**Definition:**
 The `filter()` method creates a new array with elements that pass a test implemented by the provided function.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const filteredArray = arrayName.filter(callbackFunction);
 ```
@@ -338,7 +288,7 @@ const filteredArray = arrayName.filter(callbackFunction);
 **Breakdown of the syntax:**
 - `callbackFunction`: Function returning `true` for elements to keep.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 const evens = numbers.filter(num => num % 2 === 0);
@@ -353,10 +303,10 @@ console.log(evens); // Output: [2, 4]
 
 ### Array.prototype.reduce()
 
-#### Definition:
+**Definition:**
 The `reduce()` method executes a reducer function on each element of an array, resulting in a single output value.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const result = arrayName.reduce(reducerFunction, initialValue);
 ```
@@ -365,7 +315,7 @@ const result = arrayName.reduce(reducerFunction, initialValue);
 - `reducerFunction`: Function processing each element and an accumulator.
 - `initialValue`: Starting value for the accumulator.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const numbers = [1, 2, 3, 4];
 const sum = numbers.reduce((total, num) => total + num, 0);
@@ -380,10 +330,10 @@ console.log(sum); // Output: 10
 
 ### Array.prototype.find()
 
-#### Definition:
+**Definition:**
 The `find()` method returns the first element in the array that satisfies a provided test function.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const foundElement = arrayName.find(callbackFunction);
 ```
@@ -391,7 +341,7 @@ const foundElement = arrayName.find(callbackFunction);
 **Breakdown of the syntax:**
 - `callbackFunction`: Function returning `true` for the desired element.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const numbers = [1, 2, 3, 4];
 const firstEven = numbers.find(num => num % 2 === 0);
@@ -408,7 +358,7 @@ console.log(firstEven); // Output: 2
 
 ---
 
-### Definition:
+**Definition:**
 Typed Arrays in JavaScript provide a way to handle raw binary data efficiently. They allow you to work with arrays of fixed data types such as integers, floats, or bytes, enabling optimized memory use and interactions with low-level data formats like WebGL or file I/O.
 
 ---
@@ -416,10 +366,10 @@ Typed Arrays in JavaScript provide a way to handle raw binary data efficiently. 
 ### Key Components of Typed Arrays:
 
 #### ArrayBuffer
-#### Definition:
+**Definition:**
 An `ArrayBuffer` is a generic, fixed-length chunk of memory. It acts as a container for binary data, which can be accessed using specific views.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const buffer = new ArrayBuffer(byteLength);
 ```
@@ -427,7 +377,7 @@ const buffer = new ArrayBuffer(byteLength);
 **Breakdown of the syntax:**
 - `byteLength`: Specifies the size of the buffer in bytes.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const buffer = new ArrayBuffer(8);
 console.log(buffer.byteLength); // Output: 8
@@ -440,10 +390,10 @@ console.log(buffer.byteLength); // Output: 8
 ---
 
 #### DataView
-#### Definition:
+**Definition:**
 `DataView` provides a flexible way to read and write different data types (e.g., Int32, Float64) within an `ArrayBuffer`.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const view = new DataView(buffer);
 ```
@@ -451,7 +401,7 @@ const view = new DataView(buffer);
 **Breakdown of the syntax:**
 - `buffer`: An `ArrayBuffer` to wrap with a view for access to its data.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const buffer = new ArrayBuffer(8);
 const view = new DataView(buffer);
@@ -466,10 +416,10 @@ console.log(view.getInt8(0)); // Output: 127
 ---
 
 #### Typed Array Views
-#### Definition:
+**Definition:**
 Typed Arrays like `Int8Array`, `Uint8Array`, and `Float32Array` provide a fixed-type view over an `ArrayBuffer`. These views are designed for specific data types.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const typedArray = new TypedArray(buffer, byteOffset, length);
 ```
@@ -479,7 +429,7 @@ const typedArray = new TypedArray(buffer, byteOffset, length);
 - `byteOffset`: The byte position to start accessing.
 - `length`: Number of elements to include.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const buffer = new ArrayBuffer(16);
 const int32View = new Int32Array(buffer);
@@ -508,7 +458,7 @@ console.log(int32View[0]); // Output: 42
 
 ### Real-World Example: Image Data Manipulation
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const buffer = new ArrayBuffer(16);
 const uint8View = new Uint8Array(buffer);
@@ -538,10 +488,10 @@ Typed Arrays are powerful tools in JavaScript for working with raw data and opti
 
 ### Set
 
-#### Definition:
+**Definition:**
 A `Set` is a collection of unique values. It ensures no duplicates and can store values of any type.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const mySet = new Set([value1, value2, ...]);
 ```
@@ -549,7 +499,7 @@ const mySet = new Set([value1, value2, ...]);
 **Breakdown of the syntax:**
 - Creates a `Set` and optionally initializes it with unique values.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const uniqueNumbers = new Set([1, 2, 3, 3]);
 console.log(uniqueNumbers); // Output: Set(3) { 1, 2, 3 }
@@ -565,10 +515,10 @@ console.log(uniqueNumbers.has(2)); // Output: true
 
 ### Map
 
-#### Definition:
+**Definition:**
 A `Map` is a collection of key-value pairs. Unlike objects, `Map` keys can be of any type.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const myMap = new Map([[key1, value1], [key2, value2]]);
 ```
@@ -576,7 +526,7 @@ const myMap = new Map([[key1, value1], [key2, value2]]);
 **Breakdown of the syntax:**
 - Creates a `Map` and optionally initializes it with key-value pairs.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const userRoles = new Map();
 userRoles.set('Alice', 'Admin');
@@ -593,10 +543,10 @@ console.log(userRoles.size); // Output: 2
 
 ### WeakMap
 
-#### Definition:
+**Definition:**
 A `WeakMap` is similar to `Map` but only allows objects as keys. Keys are weakly referenced, meaning they can be garbage-collected.
 
-#### Basic Syntax:
+**Basic Syntatx:**
 ```javascript
 const myWeakMap = new WeakMap([[keyObj, value]]);
 ```
@@ -604,7 +554,7 @@ const myWeakMap = new WeakMap([[keyObj, value]]);
 **Breakdown of the syntax:**
 - Creates a `WeakMap` with object keys and corresponding values.
 
-#### Concrete and Simple Example:
+**Concrete and Simple Example:**
 ```javascript
 const keyObj = {};
 const myWeakMap = new WeakMap();
