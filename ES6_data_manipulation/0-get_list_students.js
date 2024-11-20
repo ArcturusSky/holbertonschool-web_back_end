@@ -1,21 +1,7 @@
 export default function getListStudents() { // eslint-disable-line no-unused-vars
-  const StudentList = [];
-
-  const student1 = {
-    id: 1,
-    firstname: 'Guillaume',
-    location: 'San Francisco',
-  };
-  const student2 = {
-    id: 2,
-    firstname: 'James',
-    location: 'Columbia',
-  };
-  const student3 = {
-    id: 5,
-    firstname: 'Serena',
-    location: 'San Francisco',
-  };
-  StudentList.push(student1, student2, student3);
-  return StudentList;
+  return [
+    { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
+    { id: 2, firstName: 'James', location: 'Columbia' },
+    { id: 5, firstName: 'Serena', location: 'San Francisco' },
+  ];
 }
