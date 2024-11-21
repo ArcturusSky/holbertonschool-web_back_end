@@ -290,7 +290,8 @@ Ces méthodes permettent de gérer le résultat d'une promesse :
 
 ```javascript
 maPromesse
-  .then((resultat) => {
+// Note: pour aucune des trois les fonctions ne sont obligées d'avoir un paramètre. Les fonctions then, et catch peuvent juste être vides
+  .then((resultat) => { 
     console.log("Succès :", resultat);
   })
   .catch((erreur) => {
@@ -306,12 +307,12 @@ maPromesse
 - `catch()` exécute une fonction en cas d'échec.  
 - `finally()` exécute toujours du code, qu'il y ait succès ou échec.
 
-**Exemple concret et simple :**
+**Exemple concret et simple avec les méthodes sans paramètrers:**
 
 ```javascript
 commanderPizza()
-  .then((message) => console.log(message)) // Affiche : "Voici votre pizza !"
-  .catch((erreur) => console.error(erreur)) // Si erreur, affiche le message d'erreur.
+  .then(() => console.log('Voici votre pizza !')) // Affiche : "Voici votre pizza !"
+  .catch(() => new Error()) // sort une erreur vide
   .finally(() => console.log("Merci pour votre commande."));
 ```
 
