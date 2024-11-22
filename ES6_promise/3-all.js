@@ -5,9 +5,11 @@ export default function handleProfileSignup() {
   // calling the function to have their result
   Promise.all([uploadPhoto(), createUser()])
     .then(([photoResponse, userResponse]) => {
-      // "photoResponse" and "userReponse" are name given
+      // "photoResponse" and "userResponse" are name given
       // promises's results that I have to select the attribute I want of the response.
       console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
     })
-    .catch(() => console.log('Signup system offline'));
+    .catch(() => {
+      console.log('Signup system offline');
+    });
 }
