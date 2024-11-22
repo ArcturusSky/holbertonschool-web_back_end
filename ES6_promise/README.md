@@ -15,6 +15,7 @@ Learn how to handle asynchronous operations using promises, making your code cle
   - [`.then`, `.catch`, et `.finally`](#then-catch-et-finally)
   - [`Promise.all`](#promiseall-1)
   - [`Promise.allSettled()`](#promiseallsettled)
+  - [`Promise.race()`](#promiserace)
   - [L’opérateur `await`](#lopérateur-await)
   - [Les fonctions `async`](#les-fonctions-async)
 
@@ -403,6 +404,59 @@ Promise.allSettled([promise1, promise2, promise3])
 **Explication de l'exemple :**  
 - Les promesses `pizza` et `boisson` sont résolues.  
 - `Promise.all` retourne un tableau avec les deux résultats.
+---
+
+## `Promise.race()`
+
+**Définition :**  
+`Promise.race()` renvoie une promesse qui est résolue ou rejetée dès que la première promesse parmi celles fournies est réglée (résolue ou rejetée). C’est une manière d’exécuter une course entre des promesses.
+
+**Syntaxe de base :**
+
+```javascript
+Promise.race([promise1, promise2, promise3])
+  .then((result) => {
+    console.log(result); // La première promesse résolue
+  })
+  .catch((error) => {
+    console.error(error); // La première promesse rejetée
+  });
+
+```
+
+**Comment ça fonctionne ? :**  
+- Les promesses fournies sont exécutées simultanément.
+- La méthode renvoie un résultat dès qu'une des promesses est résolue ou rejetée, sans attendre les autres.
+- Si une promesse est rejetée en premier, `Promise.race()` retourn cette erreur, sauf si une autre promesse se résout avant.
+
+
+**Exemple concret et simple :**
+
+**NOTE:** Dans cet exemple, `setTimeout` est utilisé pour un temps avant de se déclencher pour simuler le fait que les promesses n'aient pas le même temps de résolution.
+
+```javascript
+const fastPromise = new Promise((resolve) => setTimeout(() => resolve("Fast result"), 100));
+const slowPromise = new Promise((resolve) => setTimeout(() => resolve("Slow result"), 500));
+const errorPromise = new Promise((_, reject) => setTimeout(() => reject("Error occurred"), 300));
+
+Promise.race([fastPromise, slowPromise, errorPromise])
+  .then((result) => {
+    console.log(result); // Affiche "Fast result" car elle est résolue en premier
+  })
+  .catch((error) => {
+    console.error(error); // Affiche une erreur si elle se produit avant toute résolution
+  });
+
+```
+
+**Explication de l'exemple :**  
+- `fastPromise` se résout après 100 ms.
+- `slowPromise` se résout après 500 ms, mais elle est ignorée car une autre promesse a déjà été réglée.
+- `errorPromise` est rejetée après 300 mais comme `fastPromise` est plus rapide, elle n'affect pas le résultat.
+
+**Quand utiliser `Promise.race()` ?**
+- Pour obtenir le **résultat le plus rapide** entre plusieurs tâches asynchrones.
+- Pour créer un **timeout**: si une promesse met trop de temps, permet de définir une autre promesse qui rejette après un certain delai. (Session timeout?).
 ---
 
 ## L’opérateur `await`
