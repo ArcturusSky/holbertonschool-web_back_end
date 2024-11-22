@@ -14,6 +14,7 @@ Learn how to handle asynchronous operations using promises, making your code cle
   - [Les Promesses](#les-promesses)
   - [`.then`, `.catch`, et `.finally`](#then-catch-et-finally)
   - [`Promise.all`](#promiseall-1)
+  - [`Promise.allSettled()`](#promiseallsettled)
   - [L’opérateur `await`](#lopérateur-await)
   - [Les fonctions `async`](#les-fonctions-async)
 
@@ -356,6 +357,52 @@ Promise.all([pizza, boisson])
 - Les promesses `pizza` et `boisson` sont résolues.  
 - `Promise.all` retourne un tableau avec les deux résultats.
 
+## `Promise.allSettled()`
+
+**Définition :**  
+`Promise.allSettled()`  attend que toutes les promesses fournies soient soit résolues, soit rejetées. Contrairement à `Promise.all()`, elle ne s’arrête pas si une promesse est rejetée.
+
+**Syntaxe de base :**
+
+```javascript
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    console.log(results);
+  });
+
+```
+
+**Comment ça fonctionne ? :**  
+- Cette méthode retourn **toujours** tableau d'objets.
+- Chaque object contient **deux** propriétées:
+  - **status**: `"fulfilled` si la promesse a réussi, `"rejected"` si elle a échoué.
+  - **value** (si `"fulfilled"`) ou **reason** (si `"rejected"`).
+
+
+**Exemple concret et simple :**
+
+```javascript
+const promise1 = Promise.resolve("Success 1");
+const promise2 = Promise.reject("Error 2");
+const promise3 = Promise.resolve("Success 3");
+
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    console.log(results);
+    /* Ci dessous, exemple de ce que ça peut ressortir
+    [
+      { status: "fulfilled", value: "Success 1" },
+      { status: "rejected", reason: "Error 2" },
+      { status: "fulfilled", value: "Success 3" }
+    ]
+    */
+  });
+
+```
+
+**Explication de l'exemple :**  
+- Les promesses `pizza` et `boisson` sont résolues.  
+- `Promise.all` retourne un tableau avec les deux résultats.
 ---
 
 ## L’opérateur `await`
