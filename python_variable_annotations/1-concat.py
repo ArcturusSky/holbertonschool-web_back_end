@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Module to type_annotated a function concat to takes two string and return
 a concatenated string.
