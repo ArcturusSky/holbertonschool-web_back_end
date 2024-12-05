@@ -6,8 +6,11 @@
   - [Simple Annotations](#simple-annotations)
   - [Type Aliases](#type-aliases)
   - [`NewType`](#newtype)
-  - [`Callable` Annotation](#callable-annotation)
+  - [**`Callable` Annotation**](#callable-annotation)
   - [Generics](#generics)
+  - [`Sequence` Annotation](#sequence-annotation)
+    - [`Iterable` Annotation](#iterable-annotation)
+    - [**Key Takeaways**](#key-takeaways)
   - [Tuple Annotation](#tuple-annotation)
   - [Class `Type`](#class-type)
   - [`Any`](#any)
@@ -244,56 +247,101 @@ print(fetch_user_name(valid_user_id))
 # print(fetch_user_name(invalid_user_id))  
 ```
 
-## `Callable` Annotation
+## **`Callable` Annotation**
 
-**When to use it:**  
-Use the `Callable` annotation when you want to specify the type of a function or callable object (like methods) that can be passed as arguments. This is useful for callbacks or when you want to ensure functions are passed correctly.
+**When to Use It;**
 
-**Short definition:**
+Use the `Callable` annotation when:  
+- You want to **specify a function as a parameter** to another function.  
+- You want to **return a function** from another function.  
 
-The `Callable` annotation defines a function's type, including its argument types and return type.
+It helps define the **type signature** of a function or callable object, ensuring proper usage in your code.
 
-**Keypoints:**  
-- Useful for specifying the types of functions passed as arguments.  
-- Enhances readability and ensures correctness when passing callable objects.
+---
 
-**Basic syntax:**
+**Short Definition:**
 
-```python
-from typing import Callable  
+The `Callable` annotation describes:  
+1. **The types of arguments** the function should accept.  
+2. **The type of value** the function should return.  
 
-Callable[[ArgType1, ArgType2], ReturnType]  
-```
+---
 
-**Very simple example of how it works:**
+**Key Points:**
 
-```python
-from typing import Callable  
+- Improves **type safety**, ensuring functions passed or returned match the expected signature.  
+- Makes your code **easier to read and maintain** by explicitly defining how a function can be used.  
+- Helps with **static type checking**, reducing runtime bugs.  
 
-def greet_callback(callback: Callable[[str], str]) -> None:  
-    print(callback("Hello"))  
+---
 
-def upper_case(s: str) -> str:  
-    return s.upper()  
-
-greet_callback(upper_case)  
-```
-
-**Concrete example of its use with a purpose:**
-
-This example shows how to define a function `greet_callback` that expects a callable argument (`upper_case`). The `Callable` annotation ensures that the function passed has the correct signature and behaves as expected. It improves type safety, avoiding bugs where a wrong function type is passed.
+**Basic Syntax:**
 
 ```python
-from typing import Callable  
+from typing import Callable
 
-def greet_callback(callback: Callable[[str], str]) -> None:  
-    print(callback("Hello"))  
-
-def upper_case(s: str) -> str:  
-    return s.upper()  
-
-greet_callback(upper_case)  
+Syntax: Callable[[ArgType1, ArgType2], ReturnType]
+Callable[[int, float], str]  # A function taking an int and a float, returning a string
 ```
+
+---
+
+**Examples:**
+
+- **Passing a Function:**
+Here’s a simple example of passing a function to another function:
+
+```python
+from typing import Callable
+
+def multiply_by_two(x: int) -> int:
+    return x * 2
+
+def apply_function(func: Callable[[int], int], value: int) -> int:
+    return func(value)
+
+result = apply_function(multiply_by_two, 5)
+print(result)  # Outputs: 10
+```
+
+**Explanation:**
+
+- **`multiply_by_two`**: A function that takes an integer and doubles it.  
+- **`apply_function`**: Takes a function (`func`) and an integer (`value`), then applies `func` to `value`.  
+- The result is `5 * 2 = 10`.  
+
+---
+
+**Returning a Function:**
+
+Let’s look at how to create a function that returns another function:
+
+```python
+from typing import Callable
+
+def make_multiplier(factor: float) -> Callable[[float], float]:
+    def multiplier(value: float) -> float:
+        return value * factor
+    return multiplier
+
+doubler = make_multiplier(2.0)
+print(doubler(5.0))  # Outputs: 10.0
+```
+
+**Explanation:**
+
+- **`make_multiplier`**: Takes a `factor` and returns a new function (`multiplier`).  
+- The returned function multiplies any number by the `factor`.  
+- `doubler` is a function that multiplies numbers by `2.0`.  
+
+---
+
+**Key Takeaways:**
+
+- Use `Callable` to **clearly define function types**, whether you are passing or returning them.  
+- It ensures **functions have the expected inputs and outputs**, reducing type-related bugs.  
+- Works great for situations involving **dynamic function generation** or **passing utility functions**.  
+
 
 ## Generics
 
@@ -345,6 +393,162 @@ def get_first_element(items: list[T]) -> T:
 first_string = get_first_element(["apple", "banana", "cherry"])  
 first_int = get_first_element([1, 2, 3])  
 ```
+
+## `Sequence` Annotation
+
+**When to use it:**
+
+Use the `Sequence` annotation when:  
+- You need to represent a **fixed order collection** of elements (like lists or tuples).  
+- You want to **guarantee that elements are indexed** and the order is preserved.  
+
+---
+
+**Short Definition:**
+
+The `Sequence` annotation represents any collection that:  
+1. **Has elements accessible by index** (like `my_sequence[0]`).  
+2. **Maintains a fixed order** of its items.  
+3. Can be iterated over.  
+
+---
+
+**Key Points:**
+- Includes **ordered, immutable or mutable collections** like lists and tuples.  
+- Provides support for common operations like indexing and slicing.  
+- Helps make code more **flexible** by accepting any sequence type instead of specific ones like `list`.
+
+---
+
+**Basic syntax:**
+
+```python
+from typing import Sequence
+
+# Syntax: Sequence[ElementType]
+Sequence[int]  # A sequence containing integers
+```
+
+---
+
+**Examples:**
+
+**Working with a sequence:**
+
+```python
+from typing import Sequence
+
+def total(sequence: Sequence[int]) -> int:
+    return sum(sequence)
+
+numbers = [1, 2, 3, 4]
+print(total(numbers))  # Outputs: 10
+```
+
+**Explanation**:  
+- The function `total` accepts any `Sequence` of integers (like a list or tuple).  
+- `numbers` is a list, which is valid since it's a `Sequence`.  
+
+---
+
+**Indexing a Sequence**
+
+```python
+from typing import Sequence
+
+def get_first_element(sequence: Sequence[str]) -> str:
+    return sequence[0]
+
+words = ("hello", "world")
+print(get_first_element(words))  # Outputs: "hello"
+```
+
+**Explanation**:  
+- The function `get_first_element` takes any `Sequence` of strings.  
+- The tuple `words` works because tuples are also sequences.  
+
+---
+
+### `Iterable` Annotation
+
+**When to use it:**
+
+Use the `Iterable` annotation when:  
+- You need to **process elements one by one** from a collection.  
+- You want to accept **any object that can be iterated over** (not limited to lists or tuples).  
+
+---
+
+**Short definition:**
+
+The `Iterable` annotation represents any collection that:  
+1. **Can produce elements one by one** (like in a loop).  
+2. Supports iteration using `for element in iterable`.  
+
+---
+
+**Key Points:**
+- Broader than `Sequence`—includes types like `set`, `dict`, and even custom iterators.  
+- Does not guarantee order or indexing.  
+- Useful for creating **general-purpose functions** that accept any iterable type.  
+
+---
+
+**Basic syntax:**
+
+```python
+from typing import Iterable
+
+# Syntax: Iterable[ElementType]
+Iterable[float]  # An iterable containing floats
+```
+
+---
+
+**Examples**
+
+**Processing an Iterable**
+
+```python
+from typing import Iterable
+
+def calculate_total(iterable: Iterable[float]) -> float:
+    return sum(iterable)
+
+values = {1.1, 2.2, 3.3}  # A set of floats
+print(calculate_total(values))  # Outputs: 6.6
+```
+
+**Explanation**:  
+- The function `calculate_total` works with any `Iterable` of floats.  
+- Sets (`values`) are valid iterables.  
+
+---
+
+**Using an Iterable in a Loop**
+
+```python
+from typing import Iterable
+
+def print_elements(iterable: Iterable[str]) -> None:
+    for element in iterable:
+        print(element)
+
+names = ["Alice", "Bob", "Charlie"]
+print_elements(names)
+```
+
+**Explanation**:  
+- The function `print_elements` iterates over any `Iterable` of strings.  
+- Lists, tuples, and sets are all valid inputs for this function.  
+
+---
+
+### **Key Takeaways**
+- Use `Sequence` when **order and indexing are essential**.  
+- Use `Iterable` when **any iterable object is acceptable**, regardless of order or indexing.  
+- Both annotations improve code clarity and flexibility, accommodating a variety of input types.  
+
 
 ## Tuple Annotation
 
