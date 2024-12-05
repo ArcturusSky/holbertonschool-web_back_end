@@ -19,28 +19,28 @@
 The `typing` module in Python provides tools to define types for better code clarity and type-checking. It doesn't affect runtime but improves readability and debugging.
 
 - **Type Aliases**: Create descriptive names for complex types.  
-  Example: `IntegerList = List[int]` creates a type alias for a list of integers.
-  
+  *Example: `IntegerList = List[int]` creates a type alias for a list of integers.*
+
 - **NewType**: Create distinct types for logically different values that share the same base type.  
-  Example: `UserId = NewType('UserId', int)` creates a new type, `UserId`, which is based on `int` but treated as a separate type for type safety.
+  *Example: `UserId = NewType('UserId', int)` creates a new type, `UserId`, which is based on `int` but treated as a separate type for type safety.*
 
 - **Callable Annotation**: Define the type of callable objects (like functions or methods).  
-  Example: `Callable[[int, int], int]` specifies a function that takes two integers and returns an integer.
+  *Example: `Callable[[int, int], int]` specifies a function that takes two integers and returns an integer.*
 
 - **Generics**: Define flexible types for functions or classes that can operate on any type.  
-  Example: `T = TypeVar('T')` allows the function `get_first_element` to accept a list of any type (e.g., `List[int]` or `List[str]`) and return an element of that same type.
+  *Example: `T = TypeVar('T')` allows the function `get_first_element` to accept a list of any type (example `List[int]` or `List[str]`) and return an element of that same type.*
 
 - **Tuple Annotation**: Define fixed-length sequences with specific types for each element.  
-  Example: `Tuple[str, int]` defines a tuple with a string as the first element and an integer as the second.
+  *Example: `Tuple[str, int]` defines a tuple with a string as the first element and an integer as the second.*
 
 - **Class Types**: Annotate variables as class references (not instances).  
-  Example: `Type[MyClass]` indicates that the variable is a reference to the class `MyClass`, not an instance.
+  *Example: `Type[MyClass]` indicates that the variable is a reference to the class `MyClass`, not an instance.*
 
 - **Union**: Define a variable that can accept multiple possible types.  
-  Example: `Union[int, str]` allows a variable to be either an `int` or a `str`.
+  *Example: `Union[int, str]` allows a variable to be either an `int` or a `str`.*
 
 - **Optional**: A shorthand for `Union[X, None]`, indicating that a value could be of type `X` or `None`.  
-  Example: `Optional[int]` means the value could be an `int` or `None`.
+  *Example: `Optional[int]` means the value could be an `int` or `None`.*
 
 
 ## Introduction
