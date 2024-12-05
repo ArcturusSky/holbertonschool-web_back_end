@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Module to type_annotated a function add to takes two float and return
 their sum as a float.
