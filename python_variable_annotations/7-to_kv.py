@@ -15,4 +15,5 @@ Tuple_str_float = Tuple[str, float]
 
 
 def to_kv(k: str, v: IntOrFloat) -> Tuple_str_float:
+    "Function that returns a tuple"
     return (k, (v * v))
