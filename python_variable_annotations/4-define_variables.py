@@ -4,14 +4,10 @@ Module that will define variables with specified values
 """
 
 
-integer = int
-a: integer = 1
+a: int = 1
 
-float_number = float
-pi: float_number = 3.14
+pi: float = 3.14
 
-boolean = bool
-i_understand_annotations: boolean = True
+i_understand_annotations: bool = True
 
-school_string = str
-school: school_string = "Holberton"
+school: str = "Holberton"
