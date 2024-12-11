@@ -8,7 +8,7 @@ from typing import AsyncGenerator
 import asyncio
 
 
-async def async_generator() -> AsyncGenerator[int, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     """
     Asynchronous generator that loops 10 times, waits for 1 second
     in each iteration, and yields a random float between 0 and 10.
