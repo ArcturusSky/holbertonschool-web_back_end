@@ -9,7 +9,7 @@ from typing import AsyncGenerator
 import asyncio
 
 
-async def async_generator() -> AsyncGenerator[int, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     """
     Basic coroutine that will loop 10 times, each time asynchronously
     wait 1 seconed
