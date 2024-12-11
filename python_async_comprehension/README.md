@@ -3,6 +3,7 @@
 - [Async Comprehension and generators](#async-comprehension-and-generators)
   - [TL;DR](#tldr)
     - [Async Comprehensions and Asynchronous Generators](#async-comprehensions-and-asynchronous-generators)
+      - [Using an Async Generator in an Async Comprehension](#using-an-async-generator-in-an-async-comprehension)
   - [Async Comprehension](#async-comprehension)
     - [1. Reminder: Comprehensions in Python (Synchronous)](#1-reminder-comprehensions-in-python-synchronous)
     - [2. The Challenge with Asynchronous Code](#2-the-challenge-with-asynchronous-code)
@@ -111,6 +112,44 @@ This loop prints each number after a 1-second pause.
 | One task finishes before starting the next. | Multiple tasks can run simultaneously. |
 | Slow for blocking tasks.       | Efficient for slow operations like network requests. |
 | Easy to understand.            | More complex, but more performant. |
+
+---
+#### Using an Async Generator in an Async Comprehension
+
+**Basic example:**
+```python
+import asyncio
+
+# Define an asynchronous generator
+async def async_gen():
+    for i in range(5):
+        await asyncio.sleep(1)  # Simulate async work
+        yield i
+
+# Use async comprehension to collect values
+async def main():
+    result = [x async for x in async_gen()]  # Async comprehension
+    print(result)
+
+# Run the async function
+asyncio.run(main())
+```
+
+**Explanation:**
+1. **Async Generator**:
+   - `async_gen` is an async generator that produces numbers from 0 to 4.
+   - It uses `await asyncio.sleep(1)` to simulate some asynchronous operation.
+
+2. **Async Comprehension**:
+   - The list `[x async for x in async_gen()]` collects all yielded values from `async_gen` into a list.
+   - The `async for` inside the comprehension handles the asynchronous nature of `async_gen`.
+
+3. **Output**:
+   - The program prints:
+     ```python
+     [0, 1, 2, 3, 4]
+     ```
+   - Each number is yielded with a 1-second delay.
 
 ---
 
