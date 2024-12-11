@@ -4,8 +4,8 @@ Module to illustrate a basic async generator
 """
 
 import random
-from typing import AsyncGenerator
 import asyncio
+from typing import AsyncGenerator
 
 
 async def async_generator() -> AsyncGenerator[float, None]:
