@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module to paginate simple data
+Module to get the start index and end index for pagination
 """
 
 
