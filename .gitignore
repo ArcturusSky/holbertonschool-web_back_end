@@ -8,3 +8,5 @@ package.json
 ES6_promise/utils.js
 __pycache__
 *-main.py
+NoSQL/dump/logs/nginx.bson
+NoSQL/dump/logs/nginx.metadata.json
