@@ -68,6 +68,8 @@ class Server:
         full_dataset = len(dataset)
         assert 0 <= index < full_dataset, "Index out of range"
 
+        # Initialized an empty list to hold
+        # elements
         page_data = []
 
         # Get dataset sorted previously
