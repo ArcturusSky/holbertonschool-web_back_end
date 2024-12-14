@@ -10,6 +10,6 @@ def insert_school(mongo_collection, **kwargs):
     based on kwargs
     """
 
-    documents = mongo_collection.insert(kwargs)
+    documents = mongo_collection.insert_one(kwargs)
 
     return documents.inserted_id
