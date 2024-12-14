@@ -50,6 +50,61 @@ MongoDB is a document-based NoSQL database. It stores data in BSON (Binary JSON)
 
 MongoDB is a **document store** and is particularly good at handling large, unstructured, or semi-structured data.
 
+### How to Start MongoDB and Use `mongosh`
+
+To be able to test commands directly on the terminal, it's requiered to use `mongosh` since recent update of Mongodb
+
+1. **Ensure MongoDB is Installed**  
+   - Verify installation with:
+```shell
+mongod --version
+mongosh --version
+```
+   - If not installed, follow [MongoDB installation guide](https://www.mongodb.com/docs/manual/installation/).
+
+2. **Start the MongoDB Server**  
+   - Run the following command to start the MongoDB server:
+```shell
+mongod
+```
+   - Keep this terminal open, as it runs the server.
+
+3. **Open the MongoDB Shell (`mongosh`)**  
+   - In a new terminal, launch the interactive MongoDB shell:
+```shell
+mongosh
+```
+   - If everything is set up correctly, you will see a prompt like this:
+```shell
+test>
+```
+
+4. **Test Commands in `mongosh`**  
+   - List all databases:
+```shell
+show dbs;
+```
+   - Create or switch to a database:
+```shell
+use myDatabase;
+```
+   - Create a collection:
+```shell
+db.createCollection("myCollection");
+```
+   - Insert a document:
+```shell
+db.myCollection.insertOne({ name: "Example Document" });
+```
+   - Find all documents in a collection:
+```shell
+db.myCollection.find();
+```
+
+5. **Stop MongoDB**  
+   - To stop the MongoDB server, press `Ctrl + C` in the terminal where `mongod` is running.
+
+
 ### Key MongoDB Commands
 
 #### 1. List All Databases
@@ -208,3 +263,9 @@ Here is a quick list of common MongoDB commands in both shell and Python:
 - **Delete Document**:
   - Shell: `db.myCollection.deleteOne({"name": "Alice"})`
   - Python: `collection.delete_one({"name": "Alice"})`
+
+### Useful link
+
+[Official cheat-sheet for Mongodb](https://www.mongodb.com/developer/products/mongodb/cheat-sheet/)
+
+[My own list of command but not very please with it](./MONGODB_COMMANDS.md)
