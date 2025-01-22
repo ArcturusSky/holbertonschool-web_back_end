@@ -121,10 +121,33 @@ The `child_process` module provides functionality to spawn subprocesses, allowin
 ### Key Features
 
 #### 1. Asynchronous Process Creation
-- `spawn()`: Launches a command in a new process
-- `exec()`: Runs a command in a shell and buffers the output
-- `execFile()`: Similar to `exec()`, but doesn't use a shell by default
-- `fork()`: Spawns a new Node.js process
+
+##### `spawn()`
+
+Launches a command in a new process
+
+&&&js
+const { spawn } = require('node:child_process');
+
+const example_spawn = spawn('ls', ['-l']);
+
+example_spawn.stdout.on('data', (example_received_data) => {
+  console.log(`stdout: ${example_received_data}`);
+});
+&&&
+
+##### `exec()`
+- 
+Runs a command in a shell and buffers the output
+
+###### `execFile()`
+
+Similar to `exec()`, but doesn't use a shell by default
+
+
+##### `fork()`
+
+Spawns a new Node.js process
 
 #### 2. Synchronous Alternatives
 - `spawnSync()`

@@ -1,7 +1,6 @@
 // Simple function to display a message in the STDOUT
-// with process
 function displayMessage(text) {
-  process.stdout.write(`${text}\n`);
+  console.log(text);
 }
 
 // For this version, for the checker, module.exports it needed
