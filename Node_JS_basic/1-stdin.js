@@ -8,8 +8,8 @@ process.stdout.write('Welcome to Holberton School, what is your name?\n');
 process.stdin.setEncoding('utf8');
 
 // Listen for readable data in the input
-// and store it in '  givenName' when available
-process.stdin.on(() => {
+// and store it in 'givenName' when available
+process.stdin.on('readable', () => {
   const givenName = process.stdin.read();
 
   // If a string is given, display a message plus the string
