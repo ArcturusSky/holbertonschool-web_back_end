@@ -126,7 +126,9 @@ The `child_process` module provides functionality to spawn subprocesses, allowin
 
 Launches a command in a new process
 
-&&&js
+*Example*
+
+```js
 const { spawn } = require('node:child_process');
 
 const example_spawn = spawn('ls', ['-l']);
@@ -134,25 +136,94 @@ const example_spawn = spawn('ls', ['-l']);
 example_spawn.stdout.on('data', (example_received_data) => {
   console.log(`stdout: ${example_received_data}`);
 });
-&&&
+```
 
 ##### `exec()`
-- 
+
 Runs a command in a shell and buffers the output
+
+*Example*
+
+```js
+const { exec } = require('node:child_process');
+
+exec('echo "Hello, World!"', (error, example_output_data, stderr) => {
+  if (error) {
+    console.error(`exec error: ${error}`);
+    return;
+  }
+  console.log(`stdout: ${example_output_data}`);
+});
+```
 
 ###### `execFile()`
 
 Similar to `exec()`, but doesn't use a shell by default
 
+*Example*
+
+```js
+const { execFile } = require('node:child_process');
+
+execFile('node', ['--version'], (error, example_version_data, stderr) => {
+  if (error) {
+    console.error(`execFile error: ${error}`);
+    return;
+  }
+  console.log(`Node version: ${example_version_data}`);
+});
+```
 
 ##### `fork()`
 
 Spawns a new Node.js process
 
+*Example*
+
+```js
+const { fork } = require('node:child_process');
+
+const example_child = fork('example_child_script.js');
+
+example_child.on('message', (example_message) => {
+  console.log('Message from child:', example_message);
+});
+
+example_child.send({ hello: 'from parent' });
+```
+
 #### 2. Synchronous Alternatives
-- `spawnSync()`
-- `execSync()`
-- `execFileSync()`
+
+##### `spawnSync()`
+
+*Example*
+
+```js
+const { spawnSync } = require('node:child_process');
+
+const example_result = spawnSync('echo', ['Hello, World!']);
+console.log(example_result.stdout.toString());
+```
+
+##### `execSync()`
+
+*Example*
+
+```js
+const { execSync } = require('node:child_process');
+
+const example_output = execSync('echo "Hello, World!"');
+console.log(example_output.toString());
+```
+
+##### `execFileSync()`
+
+```js
+const { execFileSync } = require('node:child_process');
+
+const example_version = execFileSync('node', ['--version']);
+console.log(`Node version: ${example_version}`);
+```
 
 #### 3. ChildProcess Objects
 - Returned by asynchronous methods
