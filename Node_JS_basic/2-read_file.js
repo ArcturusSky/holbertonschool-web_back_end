@@ -34,20 +34,20 @@ function countStudents(file) {
     // Add the student firstname to the appropriate field
     studentsGroupedByField[field].push(firstname);
   });
-// Once the iteration is complete, log the results
+  // Once the iteration is complete, log the results
 
-// Log the total number of students
-process.stdout.write(`Number of students: ${students.length}\n`);
+  // Log the total number of students
+  process.stdout.write(`Number of students: ${students.length}\n`);
 
-// Log the number of students in each field
-Object.entries(studentsGroupedByField).forEach(([field, firstnameList], index) => {
+  // Log the number of students in each field
+  Object.entries(studentsGroupedByField).forEach(([field, firstnameList], index) => {
     // skip first iteration
     if (index === 0) return;
 
     process.stdout.write(
-        `Number of students in ${field}: ${firstnameList.length}. List: ${firstnameList.join(', ')}\n`
+      `Number of students in ${field}: ${firstnameList.length}. List: ${firstnameList.join(', ')}\n`,
     );
-});
+  });
 }
 
 module.exports = countStudents;
