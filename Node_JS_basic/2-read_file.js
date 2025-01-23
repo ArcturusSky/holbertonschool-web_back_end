@@ -37,15 +37,15 @@ function countStudents(file) {
   // Once the iteration is complete, log the results
 
   // Log the total number of students
-  process.stdout.write(`Number of students: ${students.length - 1}\n`);
+  console.log(`Number of students: ${students.length - 1}`);
 
   // Log the number of students in each field
   Object.entries(studentsGroupedByField).forEach(([field, firstnameList], index) => {
     // skip first iteration
     if (index === 0) return;
 
-    process.stdout.write(
-      `Number of students in ${field}: ${firstnameList.length}. List: ${firstnameList.join(', ')}\n`,
+    console.log(
+      `Number of students in ${field}: ${firstnameList.length}. List: ${firstnameList.join(', ')}`,
     );
   });
 }
