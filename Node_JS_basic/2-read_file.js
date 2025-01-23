@@ -37,7 +37,7 @@ function countStudents(file) {
   // Once the iteration is complete, log the results
 
   // Log the total number of students
-  process.stdout.write(`Number of students: ${students.length}\n`);
+  process.stdout.write(`Number of students: ${students.length - 1}\n`);
 
   // Log the number of students in each field
   Object.entries(studentsGroupedByField).forEach(([field, firstnameList], index) => {
